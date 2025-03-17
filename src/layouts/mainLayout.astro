@@ -15,9 +15,8 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
 
 <html lang="en">
 <head>
-<link rel="icon" href="./public/favicon.ico?v=M44lzPylqQ">
-<link rel="mask-icon" href="./public/favicon.ico/images/safari-pinned-tab.svg?v=M44lzPylqQ" 
- color="#000000">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
@@ -27,7 +26,7 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
 
 <body>
 <div class="sidebar">
-      <h2><img src="./src/images/thing.gif" alt="Menu"></h2>
+      <h2><img src="/thing.gif" alt="Menu"></h2>
       <h3>sydney piel</h3>
       <ul>
         <li><a href="/works/selected" class={activePage === 1 ? "active-link" : ""}>works</a></li>
