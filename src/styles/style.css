@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'meep', sans-serif;
     display: flex;
-    background-image: url('/tile3.png');
+    background-image: url('/src/images/tile3.png');
     background-size: 128px;
     background-repeat: repeat;
     height: auto;
@@ -158,7 +158,7 @@ font-weight: bold;
     right: 0;
     bottom: 0;
     margin: 0;
-    border-image-source: url('/dithered-frame7.png');
+    border-image-source: url('/src/images/dithered-frame7.png');
     border-image-slice: 31;
     border-image-repeat: repeat;
     image-rendering: pixelated;
