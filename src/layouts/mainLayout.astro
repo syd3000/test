@@ -15,8 +15,8 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
 
 <html lang="en">
 <head>
-<link rel="icon" href="/favicon.ico?v=M44lzPylqQ">
-<link rel="mask-icon" href="/favicon.ico/images/safari-pinned-tab.svg?v=M44lzPylqQ" 
+<link rel="icon" href="/test/favicon.ico?v=M44lzPylqQ">
+<link rel="mask-icon" href="/test/favicon.ico/images/safari-pinned-tab.svg?v=M44lzPylqQ" 
  color="#000000">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,12 +27,12 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
 
 <body>
 <div class="sidebar">
-      <h2><img src="/thing.gif" alt="Menu"></h2>
+      <h2><img src="/test/thing.gif" alt="Menu"></h2>
       <h3>sydney piel</h3>
       <ul>
-        <li><a href="/works/selected" class={activePage === 1 ? "active-link" : ""}>works</a></li>
-        <li><a href="/about" class={activePage === 2 ? "active-link" : ""}>about</a></li>
-        <li><a href="/cv" class={activePage === 3 ? "active-link" : ""}>cv</a></li>
+        <li><a href="/test/works/selected" class={activePage === 1 ? "active-link" : ""}>works</a></li>
+        <li><a href="/test/about" class={activePage === 2 ? "active-link" : ""}>about</a></li>
+        <li><a href="/test/cv" class={activePage === 3 ? "active-link" : ""}>cv</a></li>
       </ul>
 </div>
 
@@ -41,10 +41,10 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
     {sidebarPage !== 0 && (
         <div class="sidebar-secondary">
           <ul>
-            <li><a href="/works/selected" class={sidebarPage === 1 ? "active-link" : ""}>selected</a></li>
-            <li><a href="/works/2025" class={sidebarPage === 2 ? "active-link" : ""}>2025</a></li>
-            <li><a href="/works/2024" class={sidebarPage === 3 ? "active-link" : ""}>2024</a></li>
-            <li><a href="/works/2023" class={sidebarPage === 4 ? "active-link" : ""}>2023</a></li>
+            <li><a href="/test/works/selected" class={sidebarPage === 1 ? "active-link" : ""}>selected</a></li>
+            <li><a href="/test/works/2025" class={sidebarPage === 2 ? "active-link" : ""}>2025</a></li>
+            <li><a href="/test/works/2024" class={sidebarPage === 3 ? "active-link" : ""}>2024</a></li>
+            <li><a href="/test/works/2023" class={sidebarPage === 4 ? "active-link" : ""}>2023</a></li>
           </ul>
         </div>
       )}
