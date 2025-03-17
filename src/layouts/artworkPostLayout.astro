@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import { number } from 'astro:schema';
+
 interface Props {
     imageName: string; 
     title: string;
@@ -6,9 +9,11 @@ interface Props {
     description: string;
     size: string;
     yesNo: string;
+    imageHeight: number;
+    imageWidth: number;
 }
 
-const { imageName, title, year, description, size, yesNo } = Astro.props;
+const { imageName, title, year, description, size, yesNo, imageHeight, imageWidth } = Astro.props;
 ---
 
 <div class="img-with-info">
@@ -20,7 +25,11 @@ const { imageName, title, year, description, size, yesNo } = Astro.props;
     
     <div class="img-with-border">
         <div class="image-wrapper">
-            <img src={`/src/posts2/${imageName}.jpg`} alt={title} />
+            <Image 
+            src={`/public/posts2/${imageName}.jpg`} 
+            alt={title}
+            width={imageWidth}
+            height={imageHeight} />
         </div>
     </div>
 </div>
