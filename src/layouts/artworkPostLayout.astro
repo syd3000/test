@@ -1,0 +1,26 @@
+---
+interface Props {
+    imageName: string; 
+    title: string;
+    year: number; 
+    description: string;
+    size: string;
+    yesNo: string;
+}
+
+const { imageName, title, year, description, size, yesNo } = Astro.props;
+---
+
+<div class="img-with-info">
+    <div class="description-box f">
+        <h2><i><b>{title}</b></i>, {year}</h2>
+        <p><h3>{description}</h3><br>{size}</p>
+        <p>{yesNo}</p>
+    </div>
+    
+    <div class="img-with-border">
+        <div class="image-wrapper">
+            <img src={`/posts2/${imageName}.jpg`} alt={title} />
+        </div>
+    </div>
+</div>
