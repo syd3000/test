@@ -17,14 +17,11 @@ const { title, year, description, size } = artwork.data;
     </div>
     
     <div class="img-with-border">
-        
             <a href={`/works/${year}/${artwork.id}`} class="item2">
-                <img src={`/src/content/artwork/${title}/main.jpg`} alt={title} />
+                <img src={`/public/artwork/${title}/main.jpg`} alt={title} />
             
-                {console.log(`/src/content/artwork/${title}/main.jpg`)}
                 <div class="overlay">{title}</div>
             </a>
             
-        
     </div>
 </div>
