@@ -623,7 +623,7 @@ display: block;
 }
 
 
-@media (min-aspect-ratio: 1.5/1) {
+@media (min-aspect-ratio: 1.25/1) {
     .img-with-info {
         flex-direction: row;
         justify-content: right;
@@ -636,7 +636,7 @@ display: block;
     }
 }
 
-@media (max-aspect-ratio: 1.5/1) {
+@media (max-aspect-ratio: 1.25/1) {
     .sidebar {
         position: fixed;
         top: -40px;
@@ -796,6 +796,12 @@ display: block;
     .help {
         width: 95vw;
         height: auto;
+    }
+
+    .item {
+        width: 90vw;
+        height: auto;
+        object-fit: cover; /* Ensures images scale correctly */
     }
 
 
