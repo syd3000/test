@@ -14,8 +14,8 @@ const { title, year } = artwork.data;
 
 ---
 <a href={`/works/${year}/${artwork.id}`} class="item2">
-    <img src={`/public/artwork/${title}/main.jpg`} alt={title} class="item" />
+    <img src={`/artwork/${title}/main.jpg`} alt={title} class="item" />
 
-    {console.log(`/public/artwork/${title}/main.jpg`)}
+    {console.log(`/artwork/${title}/main.jpg`)}
     <div class="overlay">{title}</div>
 </a>

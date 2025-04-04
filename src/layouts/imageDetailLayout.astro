@@ -24,7 +24,7 @@ const { title, year, description, count, size } = frontmatter;
         
         <div class="img-with-border">
             <div class="image-wrapper">
-                <img src={`/public/artwork/${title}/main.jpg`} alt={title} />
+                <img src={`/artwork/${title}/main.jpg`} alt={title} />
                 
             </div>
         </div>
@@ -38,7 +38,7 @@ const { title, year, description, count, size } = frontmatter;
                 return (
                     <Fragment key={i}>
                         <div class="item2 no-hover">
-                            <img src={`/public/artwork/${title}/image${i + 1}.jpg`} alt={`Extra photo ${i + 1}`} class="item no-hover" />
+                            <img src={`/artwork/${title}/image${i + 1}.jpg`} alt={`Extra photo ${i + 1}`} class="item no-hover" />
                         </div>
                     </Fragment>
                 );
