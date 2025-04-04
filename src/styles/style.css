@@ -481,9 +481,11 @@ display: block;
 
 
 .item {
-    height: 40vh; /* Max height constraint */
-    width: auto; /* Width auto, based on aspect ratio */
+    max-height: 40vh; /* Max height constraint */
+
     object-fit: cover; /* Ensures images scale correctly */
+    background-color: aqua;
+    max-width: 90vw;
 }
 
 
@@ -514,6 +516,7 @@ display: block;
     display: inline-block;
     margin: 20px;
     z-index: 1;
+    max-width: 90vw; /* Prevent container from overflowing viewport */
 }
 
 .item2 img {
@@ -576,7 +579,8 @@ display: block;
 }
 
 .no-hover.item {
-    height: 50vh;
+    max-height: 50vh;
+    max-width: 90vw;
 }
 
 #homePage {
@@ -796,12 +800,6 @@ display: block;
     .help {
         width: 95vw;
         height: auto;
-    }
-
-    .item {
-        width: 90vw;
-        height: auto;
-        object-fit: cover; /* Ensures images scale correctly */
     }
 
 

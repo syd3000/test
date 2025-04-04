@@ -9,6 +9,8 @@ const artworks = await getCollection("artworks", (entry) => entry.data.selected)
 
 // Sort the resolved array
 artworks.sort((a, b) => (a.data.priority || 0) - (b.data.priority || 0));
+
+
 ---
 
 <MainLayout title="Sydney Piel - Selected" description="hi" activePage={1} sidebarPage={1} headerTitle="selected works" headerInfo="">
