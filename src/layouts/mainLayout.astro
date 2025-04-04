@@ -1,4 +1,5 @@
 ---
+import { string } from 'astro:schema';
 import '../styles/style.css'
 
 interface Props {
@@ -6,9 +7,13 @@ interface Props {
     description: string;
     activePage: number;
     sidebarPage: number;
+    headerTitle?: string;
+    headerInfo?: string;
+    headerCheck?: string;
+
 }
 
-const { title, activePage, sidebarPage } = Astro.props as Props;
+const { title, activePage, sidebarPage, headerTitle = "", headerInfo = "", headerCheck = ""} = Astro.props as Props;
 
 ---
 
@@ -21,29 +26,35 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
+
+  
+
+
 <div class="sidebar">
       <h2><img src="/thing.gif" alt="Menu"></h2>
       <h3>sydney piel</h3>
       <ul>
+        <li><a href="/home" class={activePage === 2 ? "active-link" : ""}>home</a></li>
         <li><a href="/works/selected" class={activePage === 1 ? "active-link" : ""}>works</a></li>
-        <li><a href="/" class={activePage === 2 ? "active-link" : ""}>about</a></li>
-        <li><a href="/cv" class={activePage === 3 ? "active-link" : ""}>cv</a></li>
       </ul>
+      
+      <div class="bottom-text"><h4>© 2025 Sydney Piel. <br> All rights reserved.</h4></div>
 </div>
 
-   <div class="main-content">
+  <div class="main-content">
     
     {sidebarPage !== 0 && (
         <div class="sidebar-secondary">
           <ul>
             <li><a href="/works/selected" class={sidebarPage === 1 ? "active-link" : ""}>selected</a></li>
-            <li><a href="/works/2025" class={sidebarPage === 2 ? "active-link" : ""}>2025</a></li>
-            <li><a href="/works/2024" class={sidebarPage === 3 ? "active-link" : ""}>2024</a></li>
-            <li><a href="/works/2023" class={sidebarPage === 4 ? "active-link" : ""}>2023</a></li>
+            <li><a href="/works/2025" class={sidebarPage === 2025 ? "active-link" : ""}>2025</a></li>
+            <li><a href="/works/2024" class={sidebarPage === 2024 ? "active-link" : ""}>2024</a></li>
+            <li><a href="/works/2023" class={sidebarPage === 2023 ? "active-link" : ""}>2023</a></li>
           </ul>
         </div>
       )}
@@ -53,16 +64,46 @@ const { title, activePage, sidebarPage } = Astro.props as Props;
             <div class="works-content">
                 <div class="section-item">
 
+                  <div id=`header${headerCheck}` class="basic-box">
+                    
+                    <h1>{headerTitle}</h1>
+                    <p>{headerInfo}</p>
+
+                  </div>
+
                     <slot></slot>
+
+                  
           
                 </div>
         
             </div>
         </div>
 
+      <footer>
+        <div id="footer" class="basic-box">
 
-      </div>
-    </div>
+          <div class="socialIcons">
+            <a href="https://www.instagram.com/slimedog3000" class="fa-brands fa-instagram"></a>
+            <a href="https://www.tiktok.com/@slimedog3000" class="fa-brands fa-tiktok"></a>
+          </div>
+
+          <div class="footerNav">
+              <a href="/works/selected">works</a>
+              <a href="/home">home</a>
+          </div>
+
+        </div>
+
+        <div class="footerBottom">
+
+          <p>Copyright &copy;2025; Designed by <span class="designer">Sydney Piel</span></p>
+
+        </div>
+      </footer>
+
+  </div>
+    
 
 </body>
 </html>

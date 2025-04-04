@@ -1,33 +1,20 @@
 ---
-import MainLayout from "../../../layouts/mainLayout.astro";
-import ArtworkPostLayout from "../../../layouts/artworkPostLayout.astro";
 
-import artworks from "../../../../public/posts2/descriptions.json"; // Import JSON file
+import MainLayout from "../../../layouts/mainLayout.astro";
+import { getCollection } from "astro:content";
+import Selected from "../../../components/selected.astro";
+
+
+const artworks = await getCollection("artworks", (entry) => entry.data.selected);
+
+// Sort the resolved array
+artworks.sort((a, b) => (a.data.priority || 0) - (b.data.priority || 0));
 ---
 
-<MainLayout title="Sydney Piel - Selected" description="hi" activePage={1} sidebarPage={1}>
-
-    <div id="Works" class="section f">
-
-        <div class="img-with-info">
-            <div class="description-box f">
-            <h2><b>selected works</b></h2>
-            <p>some, selected works</p>
-            </div>
-
-        </div>
-    
-    </div>
+<MainLayout title="Sydney Piel - Selected" description="hi" activePage={1} sidebarPage={1} headerTitle="selected works" headerInfo="">
 
 
-    {artworks.map((artwork) => (
-        <ArtworkPostLayout 
-          imageName={artwork.imageName} 
-          title={artwork.title} 
-          year={artwork.year} 
-          description={artwork.description} 
-          size={artwork.size} 
-          yesNo={artwork.yesNo} 
-        />
-    ))}
+
+
+    {artworks.map((p) => <Selected artwork={p}/>)}
 </MainLayout>

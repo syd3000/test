@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+
+type Props = {
+    artwork: CollectionEntry<"artworks">;
+}
+
+const { artwork } = Astro.props;
+const { title, year, description, size } = artwork.data;
+---
+{console.log(artwork.id)}
+<div class="img-with-info">
+    <div class="description-box f">
+        <h2><i><a href={`/works/${year}/${artwork.id}`}>{title}</a></i>, {year}</h2>
+        <p><h3>{description}</h3><br>{size}</p>
+    </div>
+    
+    <div class="img-with-border">
+        
+            <a href={`/works/${year}/${artwork.id}`} class="item2">
+                <img src={`/src/content/artwork/${title}/main.jpg`} alt={title} />
+            
+                {console.log(`/src/content/artwork/${title}/main.jpg`)}
+                <div class="overlay">{title}</div>
+            </a>
+            
+        
+    </div>
+</div>

@@ -1,19 +1,22 @@
 ---
 import MainLayout from "../../../layouts/mainLayout.astro";
+import { getCollection } from "astro:content";
+import Post from "../../../components/post.astro";
+
+
+const artworks = await getCollection("artworks", (entry) => entry.data.year == 2023);
+
+
 ---
 
- <MainLayout title="Sydney Piel - 2023" description="hi" activePage={1} sidebarPage={4}>
-
-	<div id="Works" class="section f">
-
-        <div class="img-with-info">
-            <div class="description-box f">
-            <h2><b>2023</b></h2>
-            <p>pretend theres a bunch of things here from 2023</p>
-            </div>
-
-        </div>
+<MainLayout title="Sydney Piel - 2023" description="hi" activePage={1} sidebarPage={2023} headerInfo="some things i made in 2023" headerTitle="2023">
     
-    </div>
 
- </MainLayout>
+    <div class="container">
+
+        {artworks.map((p) => <Post artwork={p}/>)}
+        
+    </div>
+    
+</MainLayout>
+

@@ -1,0 +1,50 @@
+---
+import MainLayout from './mainLayout.astro';
+
+const { frontmatter } = Astro.props;
+console.log(frontmatter);
+
+const { title, year, description, count, size } = frontmatter;
+
+
+
+
+
+
+---
+{console.log(frontmatter.id)}
+<MainLayout title=`Sydney Piel - ${title}` description={description} activePage={1} sidebarPage={year} headerInfo='' headerTitle={title}>
+    <div class="img-with-info">
+        <div class="description-box f">
+            <p><strong>Date:</strong> {year}</p>
+            <p><strong>Materials:</strong> {description}</p>
+            <p><strong>Size:</strong> {size}</p>
+            <slot></slot>
+        </div>
+        
+        <div class="img-with-border">
+            <div class="image-wrapper">
+                <img src={`/src/content/artwork/${title}/main.jpg`} alt={title} />
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        {
+            // Looping through the image numbers (e.g., 1 to 5)
+            Array.from({ length: count }).map((_, i) => {
+                return (
+                    <Fragment key={i}>
+                        <div class="item2 no-hover">
+                            <img src={`/src/content/artwork/${title}/image${i + 1}.jpg`} alt={`Extra photo ${i + 1}`} class="item no-hover" />
+                        </div>
+                    </Fragment>
+                );
+            })
+        }
+    </div>
+
+
+</MainLayout>

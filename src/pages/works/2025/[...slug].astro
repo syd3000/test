@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import ImageDetailLayout from "../../../layouts/imageDetailLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
+
+const artworks = await getCollection("artworks");
+
+export async function getStaticPaths() {
+    const artworks = await getCollection("artworks");
+    return artworks.map((entry) => ({
+        params: { slug: entry.id},
+        props: { entry }
+    }))
+}
+
+type Props = {
+    entry: CollectionEntry<"artworks">
+}
+
+const {entry} = Astro.props;
+const {Content} = await render(entry);
+---
+
+<ImageDetailLayout frontmatter={entry.data}>
+
+    <Content/>
+
+
+</ImageDetailLayout>
